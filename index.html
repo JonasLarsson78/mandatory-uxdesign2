@@ -19,12 +19,12 @@
           <div class="main__box">
             <div class="main__box--header bg-primary">
                 <h2 class="text-center text-white">UX Exercise</h2>
-                <span class="menu_btn text-light" style="font-size:25px;cursor:pointer" onclick="openNav()">&#9776;</span>
+                <span title="Meny" aria-label="meny" class="menu_btn text-light" style="font-size:25px;cursor:pointer" onclick="openNav()" tabindex="1">&#9776;</span>
             </div>
 
             <div class="main__main"></div>
             <!-- Nav menu -->
-            <div id="mySidenav" class="sidenav bg-primary" data-backdrop="static" data-keyboard="false">
+            <div id="mySidenav" class="sidenav bg-primary" data-backdrop="static" data-keyboard="false" aria-hidden="true">
                 <a href="javascript:void(0)" class="closebtn text-light" onclick="closeNav()">&times;</a>
                 <a href="javascript:void(0)" class="text-light" onmousedown="closeNav()" onclick="renderFirstPage()">Game Screen</a>
                 <a href="javascript:void(0)" class="text-light" onmousedown="closeNav()" onclick="renderStat(allStat, playTimes)">Stats</a>
@@ -35,7 +35,7 @@
           </div>
         </div>
     </main>
-      <div class="modal fade test" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade test" id="exampleModal2" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -48,6 +48,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" onclick="getData()" data-dismiss="modal">Restart</button>
             </div>
           </div>
         </div>

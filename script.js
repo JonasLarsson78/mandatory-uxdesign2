@@ -19,7 +19,7 @@ function renderFirstPage(){
   $(".main__main").removeClass("main__box--scroll-on");
   
   $(".main__main").empty();
-  $(".main__main").append("<button class='btn btn-primary main__box--btn' onclick='getData()'>Start Quiz</button>");    
+  $(".main__main").append("<button tabindex='1' aria-label='Start Quiz' class='btn btn-primary main__box--btn' onclick='getData()'>Start Quiz</button>");    
 }
 
 let count = 1;
@@ -42,14 +42,17 @@ for (let q of data){
    
 
   $(".main__main").append("<div class='main__box--quiz font-weight-bold'>" + q.category + "</div><div class='main__box--quiz'>" + q.question + "</div>");
-  $(".main__main").append("<form id='question" + count + "' required='required'><ul class='main__box--quiz'><li><input type='radio' value='" + answer[0] + "' name='quiz" + count + "'>" + " " + answer[0] + 
-  "</li><li><input type='radio' value='" + answer[1] + "' name='quiz" + count + "'>" + " " + answer[1] + "</li><li><input type='radio' value='" + answer[2] + "' name='quiz" + count + "'>" + " "
-   + answer[2] + "</li><li><input type='radio' value='" + answer[3] + "' name='quiz" + count + "'>" + " " + answer[3] + "</li></ul></form>");
+  $(".main__main").append("<form id='question" + count + "' required='required'><ul class='main__box--quiz'>" + 
+  "<li class='custom-control custom-radio'><input id='defaultUnchecked" + count + "' class='custom-control-input' type='radio' value='" + answer[0] + "' name='quiz" + count + "'><label class='custom-control-label' for='defaultUnchecked" + count + "'>" + answer[0] + "</label></li>" + 
+  "<li class='custom-control custom-radio'><input id='defaultUnchecked" + count+1 + "' class='custom-control-input' type='radio' value='" + answer[1] + "' name='quiz" + count + "'><label class='custom-control-label' for='defaultUnchecked" + count+1 + "'>" + answer[1] + "</label></li>" +  
+  "<li class='custom-control custom-radio'><input id='defaultUnchecked" + count+2 + "' class='custom-control-input' type='radio' value='" + answer[2] + "' name='quiz" + count + "'><label class='custom-control-label' for='defaultUnchecked" + count+2 + "'>" + answer[2] + "</label></li>" + 
+  "<li class='custom-control custom-radio'><input id='defaultUnchecked" + count+3 + "' class='custom-control-input' type='radio' value='" + answer[3] + "' name='quiz" + count + "'><label class='custom-control-label' for='defaultUnchecked" + count+3 + "'>" + answer[3] + "</label></li>" +
+  "</ul></form>");
   
    count++;
  }
  $(".main__main").append("<p class='main__box--mess main__box--center'></p>");
- $(".main__main").append("<button id='checkBtn' class='btn btn-primary main__box--center' onclick='checkAnswer(correct)' data-toggle='modal' data-backdrop='static' data-keyboard='false'>Right Answer</button>");
+ $(".main__main").append("<button id='checkBtn' class='btn btn-primary main__box--center' onclick='checkAnswer(correct)' data-toggle='modal' data-backdrop='static' data-keyboard='false' tabindex='-1'>Right Answer</button>");
  
  playTimes++;
 {/* <button class='btn btn-primary main__box--btn menu_btn--x' onclick='checkAnswer(correct)' data-toggle='modal' data-target='#exampleModal2' data-backdrop='static' data-keyboard='false'>Rätta</button>
@@ -168,6 +171,7 @@ function checkAnswer(data){
   console.log(stat + " " + "Rätt");
   console.log(allStat + " " + "AllA Rätt");
   console.log(playTimes + " " + "Play times");
+  modalBody.append("<hr><p>Antal Rätt: " + stat + " av 10</p>");
   correct = [];
   renderFirstPage();
   $(".main__box--mess").text("");

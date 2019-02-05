@@ -6,8 +6,8 @@ body{
 }
 ul{
     list-style: none;
+    outline: none;
 }
-
 
 input[type="radio"]{
     top: 5px;
@@ -125,7 +125,7 @@ input[type="radio"]{
   .main__box--btn{
       position: relative;
       left: 50%;
-      top: 300px;
+      top: 200px;
       transform: translate(-50%);
   }
   .main__box--center{
@@ -134,6 +134,52 @@ input[type="radio"]{
     transform: translate(-50%);
     text-align: center;
 }
+ .center{
+     position: absolute;
+     left: 50%;
+     top: 50%;
+     color: white;
+     font-size: 40px;
+     transform: translate(-50%, -50%);
+ } 
   
-  
+.rotate-scale-up {
+    position: relative;
+    top: 80px;
+    left: 100px;;
+    border-radius: 20px;
+    width: 150px;
+    height: 150px;
+-webkit-animation: rotate-scale-up 0.65s linear both;
+	        animation: rotate-scale-up 0.65s linear both;
+}
+
+ @-webkit-keyframes rotate-scale-up {
+    0% {
+      -webkit-transform: scale(1) rotateZ(0);
+              transform: scale(1) rotateZ(0);
+    }
+    50% {
+      -webkit-transform: scale(2) rotateZ(180deg);
+              transform: scale(2) rotateZ(180deg);
+    }
+    100% {
+      -webkit-transform: scale(1) rotateZ(360deg);
+              transform: scale(1) rotateZ(360deg);
+    }
+  }
+  @keyframes rotate-scale-up {
+    0% {
+      -webkit-transform: scale(1) rotateZ(0);
+              transform: scale(1) rotateZ(0);
+    }
+    50% {
+      -webkit-transform: scale(2) rotateZ(180deg);
+              transform: scale(2) rotateZ(180deg);
+    }
+    100% {
+      -webkit-transform: scale(1) rotateZ(360deg);
+              transform: scale(1) rotateZ(360deg);
+    }
+  }
   

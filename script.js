@@ -41,9 +41,9 @@ for (let q of data){
   
    
 
-  $(".main__main").append("<div class='main__box--quiz font-weight-bold'>" + q.category + "</div><div class='main__box--quiz'>" + q.question + "</div>");
-  $(".main__main").append("<form id='question" + count + "' required='required'><ul class='main__box--quiz'>" + 
-  "<li class='custom-control custom-radio'><input id='defaultUnchecked" + count + "' class='custom-control-input' type='radio' value='" + answer[0] + "' name='quiz" + count + "'><label class='custom-control-label' for='defaultUnchecked" + count + "'>" + answer[0] + "</label></li>" + 
+  $(".main__main").append("<div tabindex='0' class='main__box--quiz font-weight-bold'>" + q.category + "</div><div tabindex='0' class='main__box--quiz'>" + q.question + "</div>");
+  $(".main__main").append("<form id='question" + count + "' required='required'><ul tabindex='0' class='main__box--quiz'>" + 
+  "<li aria-label='" + answer[0] + "' class='custom-control custom-radio'><input id='defaultUnchecked" + count + "' class='custom-control-input' type='radio' value='" + answer[0] + "' name='quiz" + count + "'><label class='custom-control-label' for='defaultUnchecked" + count + "'>" + answer[0] + "</label></li>" + 
   "<li class='custom-control custom-radio'><input id='defaultUnchecked" + count+1 + "' class='custom-control-input' type='radio' value='" + answer[1] + "' name='quiz" + count + "'><label class='custom-control-label' for='defaultUnchecked" + count+1 + "'>" + answer[1] + "</label></li>" +  
   "<li class='custom-control custom-radio'><input id='defaultUnchecked" + count+2 + "' class='custom-control-input' type='radio' value='" + answer[2] + "' name='quiz" + count + "'><label class='custom-control-label' for='defaultUnchecked" + count+2 + "'>" + answer[2] + "</label></li>" + 
   "<li class='custom-control custom-radio'><input id='defaultUnchecked" + count+3 + "' class='custom-control-input' type='radio' value='" + answer[3] + "' name='quiz" + count + "'><label class='custom-control-label' for='defaultUnchecked" + count+3 + "'>" + answer[3] + "</label></li>" +
@@ -196,11 +196,12 @@ function renderAbout(){
 
 function openNav() {
   $("#mySidenav").css("width", "250px");
-  
+  $("#mySidenav").attr("aria-hidden", "false");
 }
 
 function closeNav() {
   $("#mySidenav").css("width", "0px");
+  $("#mySidenav").attr("aria-hidden", "true");
    
   
   

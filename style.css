@@ -7,6 +7,12 @@ body{
 ul{
     list-style: none;
 }
+
+
+input[type="radio"]{
+    top: 5px;
+    left: 0px;
+}
 .main__content{
     display: flex;
     justify-content: center;

@@ -3,6 +3,7 @@
 }
 body {
   font-family: "Roboto", sans-serif;
+  background-color: #d6d6d6;
 }
 ul {
   list-style: none;
@@ -28,6 +29,8 @@ input[type="radio"] {
   border: 1px solid black;
   border-radius: 5px;
   padding-top: 100px;
+  background-color: white;
+  box-shadow: 5px 5px 5px 5px;
 }
 .main__main {
   position: relative;
@@ -40,6 +43,7 @@ input[type="radio"] {
 .main__box--scroll-on {
   overflow-y: scroll;
   overflow-x: hidden;
+  
 }
 .main__box--scroll-off {
   overflow-y: hidden;
@@ -59,7 +63,7 @@ input[type="radio"] {
 }
 .main__box--header {
   position: fixed;
-  top: 80px;
+  top: 81px;
   border-radius: 5px 5px 0px 0px;
   height: 100px;
   width: 348px;
@@ -107,7 +111,7 @@ input[type="radio"] {
 }
 .menu_btn {
   position: absolute;
-  top: 55px;
+  top: 40px;
   left: 8px;
 }
 

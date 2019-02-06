@@ -21,8 +21,8 @@ function getData(){
 function renderFirstPage(){
   $(".main__main").removeClass("main__box--scroll-on");
   $(".main__main").empty();
-  $(".main__main").append("<div class='rotate-scale-up bg-primary'><p class='center'>Quiz</p></div>");
-  $(".main__main").append("<button tabindex='1' aria-label='Start Quiz' class='btn btn-primary main__box--btn' onclick='getData()'>Start Quiz</button>");    
+  $(".main__main").append("<div tabindex='-1' class='rotate-scale-up bg-primary'><p tabindex='-1' class='center'>Quiz</p></div>");
+  $(".main__main").append("<button id='startBtn' tabindex='0' aria-label='Start Quiz' class='btn btn-primary main__box--btn' onclick='getData()'>Start Quiz</button>");    
 }
 function renderQuiz(data){
   $(".main__main").empty();
@@ -46,7 +46,7 @@ for (let q of data){
    count++;
  }
  $(".main__main").append("<p class='main__box--mess main__box--center'></p>");
- $(".main__main").append("<button id='checkBtn' class='btn btn-primary main__box--center' onclick='checkAnswer(correct)' data-toggle='modal' data-backdrop='static' data-keyboard='false' tabindex='-1'>Right Answer</button>");
+ $(".main__main").append("<button id='checkBtn' class='btn btn-primary main__box--center' onclick='checkAnswer(correct)' data-toggle='modal' data-backdrop='static' data-keyboard='false' tabindex='0'>Right Answer</button>");
  
  playTimes++;
 }
@@ -163,11 +163,19 @@ function renderAbout(){
 function openNav() {
   $("#mySidenav").css("width", "250px");
   $("#mySidenav").attr("aria-hidden", "false");
+  $("#mySidenav > a").attr("tabindex", "0");
+  $("#startBtn").attr("tabindex", "-1");
+
+
+
 }
 
 function closeNav() {
   $("#mySidenav").css("width", "0px");
   $("#mySidenav").attr("aria-hidden", "true");
+  $("#mySidenav > a").attr("tabindex", "-1");
+  $("#startBtn").attr("tabindex", "0");
+
 }
 
 renderFirstPage();

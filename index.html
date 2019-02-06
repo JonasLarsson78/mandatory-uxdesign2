@@ -18,17 +18,17 @@
         <div class="main__content">
           <div class="main__box">
             <div class="main__box--header bg-primary">
-                <h2 class="text-center text-white">UX Exercise</h2>
+                <h2 class="text-center text-white" tabindex="0">UX Exercise</h2>
                 <!-- Bugermeny -->
-                <span title="Meny" aria-label="meny" class="menu_btn text-light" style="font-size:25px;cursor:pointer" onfocus="openNav()" tabindex="0">&#9776;</span>
+                <button title="Meny" aria-label="meny" class="menu_btn btn btn-primary" style="font-size:25px;cursor:pointer" onclick="openNav()" tabindex="0">&#9776;</button>
             </div>
             <div class="main__main"></div>
             <!-- Nav menu -->
             <div id="mySidenav" class="sidenav bg-primary" data-backdrop="static" data-keyboard="false" aria-hidden="true">
-                <a href="javascript:void(0)" class="closebtn text-light" onclick="closeNav()">&times;</a>
-                <a href="javascript:void(0)" class="text-light" onclick="closeNav()" onmousedown="renderFirstPage()">Game Screen</a>
-                <a href="javascript:void(0)" class="text-light" onclick="closeNav()" onmousedown="renderStat(allStat, playTimes)">Stats</a>
-                <a href="javascript:void(0)" class="text-light" onclick="closeNav()" onmousedown="renderAbout()">About App</a>
+                <a href="javascript:void(0)" class="closebtn text-light" onclick="closeNav()" tabindex="-1">&times;</a>
+                <a href="javascript:void(0)" class="text-light" onclick="closeNav()" onmousedown="renderFirstPage()" tabindex="-1">Game Screen</a>
+                <a href="javascript:void(0)" class="text-light" onclick="closeNav()" onmousedown="renderStat(allStat, playTimes)" tabindex="-1">Stats</a>
+                <a href="javascript:void(0)" class="text-light" onclick="closeNav()" onmousedown="renderAbout()" tabindex="-1">About App</a>
               </div>
               <!-- Nav menu end -->
           </div>

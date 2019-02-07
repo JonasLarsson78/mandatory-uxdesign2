@@ -3,7 +3,14 @@
 }
 body {
   font-family: "Roboto", sans-serif;
-  background-color: #d6d6d6;
+}
+.body__back--light{
+  background: #d6d6d6;
+  transition: 0.5s;
+}
+.body__back--dark{
+  background: #474747;
+  transition: 0.5s;
 }
 ul {
   list-style: none;
@@ -30,7 +37,7 @@ input[type="radio"] {
   border-radius: 5px;
   padding-top: 100px;
   background-color: white;
-  box-shadow: 5px 5px 5px 5px;
+  box-shadow: 5px 5px 5px 2px;
 }
 .main__main {
   position: relative;
@@ -59,7 +66,8 @@ input[type="radio"] {
   top: 0px;
   left: 10px;
 }
-.main__box--quiz-text {
+.main__box--text {
+  padding: 10px;
 }
 .main__box--header {
   position: fixed;
@@ -72,8 +80,8 @@ input[type="radio"] {
 }
 
 .modal-dialog {
-  width: 300px;
-  top: 60px;
+  width: 320px;
+  top: 20px;
 }
 .sidenav {
   height: 499px;
@@ -104,20 +112,27 @@ input[type="radio"] {
 
 .sidenav .closebtn {
   position: absolute;
-  top: -15px;
+  height: 45px;
+  
   right: 5px;
   font-size: 36px;
-  margin-left: 50px;
+  
 }
 .menu_btn {
   position: absolute;
   top: 40px;
   left: 8px;
 }
+.menu_btn--btn{
+  position: relative;
+  top: 100px;
+  left: 50px;
+  margin-bottom: 20px;
+}
 
 .menu_btn--x {
-  position: sticky;
-  top: 0px;
+  position: relative;
+  top: -12px;
 }
 .main__box--btn {
   position: relative;
@@ -142,11 +157,15 @@ input[type="radio"] {
 
 .rotate-scale-up {
   position: relative;
+  opacity: 1;
   top: 80px;
   left: 100px;
   border-radius: 20px;
   width: 150px;
   height: 150px;
+  box-shadow: 5px 5px 5px 2px;
+  transition: 0.5s;
+
   -webkit-animation: rotate-scale-up 0.65s linear both;
   animation: rotate-scale-up 0.65s linear both;
 }
@@ -155,27 +174,35 @@ input[type="radio"] {
   0% {
     -webkit-transform: scale(1) rotateZ(0);
     transform: scale(1) rotateZ(0);
+    transition: 0.5s;
   }
   50% {
     -webkit-transform: scale(2) rotateZ(180deg);
     transform: scale(2) rotateZ(180deg);
+    transition: 0.5s;
+    background: #0d47a1;
   }
   100% {
     -webkit-transform: scale(1) rotateZ(360deg);
     transform: scale(1) rotateZ(360deg);
+    transition: 0.5s;
   }
 }
 @keyframes rotate-scale-up {
   0% {
     -webkit-transform: scale(1) rotateZ(0);
     transform: scale(1) rotateZ(0);
+    transition: 0.5s;
   }
   50% {
     -webkit-transform: scale(2) rotateZ(180deg);
     transform: scale(2) rotateZ(180deg);
+    transition: 0.5s;
+    background: #0d47a1;
   }
   100% {
     -webkit-transform: scale(1) rotateZ(360deg);
     transform: scale(1) rotateZ(360deg);
+    transition: 0.5s;
   }
 }

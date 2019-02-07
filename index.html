@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>UX Exercise</title>
   </head>
-  <body>
+  <body class="body__back--light">
     <main>
         <div class="main__content">
           <div class="main__box">
@@ -24,11 +24,11 @@
             </div>
             <div class="main__main"></div>
             <!-- Nav menu -->
-            <div id="mySidenav" class="sidenav bg-primary" data-backdrop="static" data-keyboard="false" aria-hidden="true">
-                <a href="javascript:void(0)" class="closebtn text-light" onclick="closeNav()" tabindex="-1">&times;</a>
-                <a href="javascript:void(0)" class="text-light" onclick="closeNav()" onmousedown="renderFirstPage()" tabindex="-1">Game Screen</a>
-                <a href="javascript:void(0)" class="text-light" onclick="closeNav()" onmousedown="renderStat(allStat, playTimes)" tabindex="-1">Stats</a>
-                <a href="javascript:void(0)" class="text-light" onclick="closeNav()" onmousedown="renderAbout()" tabindex="-1">About App</a>
+            <div id="mySidenav" class="sidenav bg-primary" role="navigation" aria-label="Main navigation" data-backdrop="static" data-keyboard="false" aria-hidden="true">
+                <button href="javascript:void(0)" role="button" aria-pressed="false" class="closebtn btn btn-primary" onclick="closeNav()" tabindex="-1"><p class="menu_btn--x">&times;</p></button>
+                <button href="javascript:void(0)" role="button" aria-pressed="false" class="btn btn-primary menu_btn--btn" onclick="closeNav(); renderFirstPage();" tabindex="-1">Game Screen</button><br>
+                <button href="javascript:void(0)" role="button" aria-pressed="false" class="btn btn-primary menu_btn--btn" onclick="closeNav(); renderStat(allStat, playTimes, w_stat);" tabindex="-1">Stats</button><br>
+                <button href="javascript:void(0)" role="button" aria-pressed="false" class="btn btn-primary menu_btn--btn" onclick="closeNav(); renderAbout();" tabindex="-1">About App</button>
               </div>
               <!-- Nav menu end -->
           </div>
@@ -56,3 +56,4 @@
       <!-- Modal end -->
   </body>
   </html>
+  

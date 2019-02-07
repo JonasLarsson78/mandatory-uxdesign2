@@ -10,7 +10,6 @@ let min = 0;
 let sek = 0;
 let sumTime = "00:00";
 
-
 /* Get data from API */
 function getData(){
   $(".main__main").addClass("main__box--scroll-on");
@@ -112,7 +111,6 @@ function checkAnswer(data){
 
   modalBody.append("<span>Correct Answer/s: " + stat + " av 10</span>");
   correct = [];
-  renderFirstPage();
   $(".main__box--mess").text("");
   $("body").removeClass("body__back--dark");
   stopTimer();
@@ -210,8 +208,5 @@ function stopTimer() {
     $(".timer").css("opacity", "0");
   }
 /* ------------------ End ---------------- */
-
-
-
 
 renderFirstPage();

@@ -8,6 +8,7 @@ let allStat = 0;
 let qOn = false;
 let min = 0;
 let sek = 0;
+let sec = 0;
 let sumTime = "00:00";
 
 /* Get data from API */
@@ -122,7 +123,6 @@ function checkAnswer(data){
 }
 
 function renderStat(allStat, playTimes, wrongStat, time){
-  stopTimer();
   qOn = false;
   $("body").removeClass("body__back--dark");
   let percentR = allStat/playTimes*10;
@@ -143,6 +143,7 @@ function renderStat(allStat, playTimes, wrongStat, time){
   + "<p class='main__box--text'><b>Average:</b>" + " " + roundNaN(average) + "p</p>");
   $(".main__main").append("<p class='main__box--text'><b>Play Time:</b>" + " " + time + "</p>");
   $(".main__main").append("<button id='startBtn' tabindex='0' aria-label='Reset' class='btn btn-danger main__box--btnD' onclick='resetStat()'>Reset Stats</button>");    
+  stopTimer();
 }
 
 function resetStat(){
@@ -151,11 +152,13 @@ function resetStat(){
   w_stat = 0;
   allStat = 0;
   sec = 0;
+  sumTime = "00:00"
+  $("#minutes").html("00"); 
+  $("#seconds").html("00");
   renderStat(allStat, playTimes, w_stat, sumTime);
 }
 
 function renderAbout(){
-  stopTimer();
   qOn = false;
   $("body").removeClass("body__back--dark");
   $(".main__main").empty();
@@ -163,6 +166,7 @@ function renderAbout(){
   " tryck- och förlagsindustrin. Lorem ipsum har varit standard ända sedan 1500-talet, när en okänd boksättare tog att antal bokstäver och blandade dem för att göra ett provexemplar " + 
   " av en bok. Lorem ipsum har inte bara överlevt fem århundraden, utan även övergången till elektronisk typografi utan större förändringar. Det blev allmänt känt på 1960-talet i samband " + 
   " med lanseringen av Letraset-ark med avsnitt av Lorem Ipsum, och senare med mjukvaror som Aldus PageMaker.</p>");
+  stopTimer();
 }
 
 function openNav() {
@@ -188,7 +192,6 @@ function closeNav() {
   }
 }
 /* -------------- Timer ---------------- */
-let sec = 0;
 function startTimer(){
     function pad (val) { return val > 9 ? val : "0" + val; }
     timer = setInterval(() => {

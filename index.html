@@ -19,6 +19,7 @@
           <div class="main__box">
             <div class="main__box--header bg-primary">
                 <h2 class="text-center text-white" tabindex="0">UX Exercise</h2>
+                <span id="minutes" class="timer">00</span><span class="timer">:</span><span id="seconds" class="timer">00</span>
                 <!-- Bugermeny -->
                 <button title="Meny" aria-label="meny" class="menu_btn btn btn-primary" style="font-size:25px;cursor:pointer" onclick="openNav()" tabindex="0">&#9776;</button>
             </div>
@@ -26,8 +27,8 @@
             <!-- Nav menu -->
             <div id="mySidenav" class="sidenav bg-primary" role="navigation" aria-label="Main navigation" data-backdrop="static" data-keyboard="false" aria-hidden="true">
                 <button href="javascript:void(0)" role="button" aria-pressed="false" class="closebtn btn btn-primary" onclick="closeNav()" tabindex="-1"><p class="menu_btn--x">&times;</p></button>
-                <button href="javascript:void(0)" role="button" aria-pressed="false" class="btn btn-primary menu_btn--btn" onclick="closeNav(); renderFirstPage();" tabindex="-1">Game Screen</button><br>
-                <button href="javascript:void(0)" role="button" aria-pressed="false" class="btn btn-primary menu_btn--btn" onclick="closeNav(); renderStat(allStat, playTimes, w_stat);" tabindex="-1">Stats</button><br>
+                <button href="javascript:void(0)" role="button" aria-pressed="false" class="btn btn-primary menu_btn--btn" onclick="closeNav(); renderFirstPage(); stopTimer();" tabindex="-1">Game Screen</button><br>
+                <button href="javascript:void(0)" role="button" aria-pressed="false" class="btn btn-primary menu_btn--btn" onclick="closeNav(); renderStat(allStat, playTimes, w_stat, sumTime);" tabindex="-1">Stats</button><br>
                 <button href="javascript:void(0)" role="button" aria-pressed="false" class="btn btn-primary menu_btn--btn" onclick="closeNav(); renderAbout();" tabindex="-1">About App</button>
               </div>
               <!-- Nav menu end -->
@@ -48,12 +49,12 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" onclick="getData()" data-dismiss="modal">Restart</button>
+              <button type="button" class="btn btn-primary" onclick="getData(); startTimer();" data-dismiss="modal">Restart</button>
             </div>
           </div>
         </div>
       </div>
       <!-- Modal end -->
-  </body>
+      </body>
   </html>
   

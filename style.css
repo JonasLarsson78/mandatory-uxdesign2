@@ -67,6 +67,9 @@ input[type="radio"] {
   left: 10px;
 }
 .main__box--text {
+  position: relative;
+  top: -10px;
+  left: 0px;
   padding: 10px;
 }
 .main__box--header {
@@ -140,8 +143,15 @@ input[type="radio"] {
   top: 200px;
   transform: translate(-50%);
 }
+.main__box--btnD{
+  position: relative;
+  top: 0px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .main__box--center {
   position: relative;
+  top: 0px;
   left: 50%;
   transform: translate(-50%);
   text-align: center;
@@ -205,4 +215,13 @@ input[type="radio"] {
     transform: scale(1) rotateZ(360deg);
     transition: 0.5s;
   }
+}
+
+.timer{
+  position: relative;
+  bottom: 7px;
+  font-size: 25px;
+  left: 140px;
+  color: white;
+  opacity: 0;
 }

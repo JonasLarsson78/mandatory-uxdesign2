@@ -6,6 +6,10 @@ let stat = 0;
 let w_stat = 0;
 let allStat = 0;
 let qOn = false;
+let min = 0;
+let sek = 0;
+let sumTime = "00:00";
+
 
 /* Get data from API */
 function getData(){
@@ -28,7 +32,7 @@ function renderFirstPage(){
   $(".main__main").removeClass("main__box--scroll-on");
   $(".main__main").empty();
   $(".main__main").append("<div tabindex='-1' class='rotate-scale-up bg-primary'><p tabindex='-1' class='center'>Quiz</p></div>");
-  $(".main__main").append("<button id='startBtn' tabindex='0' aria-label='Start Quiz' class='btn btn-primary main__box--btn' onclick='getData()'>Start Quiz</button>");    
+  $(".main__main").append("<button id='startBtn' tabindex='0' aria-label='Start Quiz' class='btn btn-primary main__box--btn' onclick='getData(); startTimer();'>Start Quiz</button>");    
 }
 
 function renderQuiz(data){
@@ -61,7 +65,6 @@ for (let q of data){
 }
 
 function checkAnswer(data){
-  playTimes++;
   count = 1;
   stat = 0;
   let modalBody = $(".modal-body");
@@ -79,6 +82,7 @@ function checkAnswer(data){
   let question10Answer = $("input[name='quiz10']:checked").val();
 
   if (question1Answer !== undefined && question2Answer !== undefined && question3Answer !== undefined && question4Answer !== undefined && question5Answer !== undefined && question6Answer !== undefined && question7Answer !== undefined && question8Answer !== undefined && question9Answer !== undefined && question10Answer !== undefined){
+    playTimes++;
     /* Render Right or Wrong answer */
     $("#checkBtn").attr("data-target", "#exampleModal2");
 
@@ -111,14 +115,16 @@ function checkAnswer(data){
   renderFirstPage();
   $(".main__box--mess").text("");
   $("body").removeClass("body__back--dark");
-
+  stopTimer();
+  
   }
   else{
     $(".main__box--mess").text("Must answer all questions!!");
   }
 }
 
-function renderStat(allStat, playTimes, wrongStat){
+function renderStat(allStat, playTimes, wrongStat, time){
+  stopTimer();
   qOn = false;
   $("body").removeClass("body__back--dark");
   let percentR = allStat/playTimes*10;
@@ -137,7 +143,8 @@ function renderStat(allStat, playTimes, wrongStat){
   $(".main__main").append("<h4 class='main__box--center'>Stats:</h4><p class='main__box--text'><b>All Right Answer:</b>" + " " + allStat + "p</p><p class='main__box--text'><b>All Wrong Answer:</b>" + " " + wrongStat + "p</p><p class='main__box--text'><b>Play Times:</b>" 
   + " " + playTimes + "st</p><p class='main__box--text'><b>Right Answer In Percent:</b>" + " " + roundNaN(percentR) + "%</p><p class='main__box--text'><b>Wrong Answer In Percent:</b>" + " " + roundNaN(percentW) + "%</p>"
   + "<p class='main__box--text'><b>Average:</b>" + " " + roundNaN(average) + "p</p>");
-  $(".main__main").append("<button id='startBtn' tabindex='0' aria-label='Reset' class='btn btn-danger main__box--center' onclick='resetStat()'>Reset Stats</button>");    
+  $(".main__main").append("<p class='main__box--text'><b>Play Time:</b>" + " " + time + "</p>");
+  $(".main__main").append("<button id='startBtn' tabindex='0' aria-label='Reset' class='btn btn-danger main__box--btnD' onclick='resetStat()'>Reset Stats</button>");    
 }
 
 function resetStat(){
@@ -145,10 +152,12 @@ function resetStat(){
   stat = 0;
   w_stat = 0;
   allStat = 0;
-  renderStat(allStat, playTimes, w_stat);
+  sec = 0;
+  renderStat(allStat, playTimes, w_stat, sumTime);
 }
 
 function renderAbout(){
+  stopTimer();
   qOn = false;
   $("body").removeClass("body__back--dark");
   $(".main__main").empty();
@@ -166,6 +175,7 @@ function openNav() {
   $(".rotate-scale-up").css("opacity", "0");
   if (qOn !== true){
     $("body").removeClass("body__back--dark");
+    
   }
 }
 
@@ -179,5 +189,29 @@ function closeNav() {
     $("body").removeClass("body__back--dark");
   }
 }
+/* -------------- Timer ---------------- */
+let sec = 0;
+function startTimer(){
+    function pad (val) { return val > 9 ? val : "0" + val; }
+    timer = setInterval(() => {
+        $("#seconds").html(pad(++sec%60));
+        $("#minutes").html(pad(parseInt(sec/60,10)));
+    }, 1000);
+    $(".timer").css("opacity", "1");
+
+}
+function stopTimer() {
+    clearInterval(timer);
+    min = $("#minutes").html(); 
+    sek = $("#seconds").html();
+
+    sumTime = min + ":" + sek;
+    console.log(sumTime);
+    $(".timer").css("opacity", "0");
+  }
+/* ------------------ End ---------------- */
+
+
+
 
 renderFirstPage();

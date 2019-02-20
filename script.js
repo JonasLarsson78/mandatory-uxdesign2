@@ -36,6 +36,7 @@ function renderFirstPage(){
 }
 
 function renderQuiz(data){
+  $(".main__main").scrollTop(0);
   $(".main__main").empty();
   qOn = true;
   count = 1;
@@ -141,7 +142,7 @@ function renderStat(allStat, playTimes, wrongStat, time){
   $(".main__main").append("<h4 class='main__box--center'>Stats:</h4><p class='main__box--text'><b>All Right Answer:</b>" + " " + allStat + "p</p><p class='main__box--text'><b>All Wrong Answer:</b>" + " " + wrongStat + "p</p><p class='main__box--text'><b>Play Times:</b>" 
   + " " + playTimes + "st</p><p class='main__box--text'><b>Right Answer In Percent:</b>" + " " + roundNaN(percentR) + "%</p><p class='main__box--text'><b>Wrong Answer In Percent:</b>" + " " + roundNaN(percentW) + "%</p>"
   + "<p class='main__box--text'><b>Average:</b>" + " " + roundNaN(average) + "p</p>");
-  $(".main__main").append("<p class='main__box--text'><b>Play Time:</b>" + " " + time + "</p>");
+  $(".main__main").append("<p class='main__box--text'><b>Play Time:</b>" + " " + time + "min</p>");
   $(".main__main").append("<button id='startBtn' tabindex='0' aria-label='Reset' class='btn btn-danger main__box--btnD' onclick='resetStat()'>Reset Stats</button>");    
   stopTimer();
 }
